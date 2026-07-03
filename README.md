@@ -300,7 +300,7 @@ Website: www.rooscloset.store
 GitHub: https://github.com/najmun-ai
 
 BoroBhai Repository: https://github.com/najmun-ai/Bangla-AI  
-RoosCloset Repository: https://github.com/najmun-ai/rooscloset-retail-intelligence (to be created)
+RoosCloset Repository: https://github.com/najmun-ai/rooscloset-retail-intelligence
 
 ---
 
