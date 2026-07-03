@@ -173,34 +173,6 @@ Cost: 35-50 dollars per month at MVP scale. At full scale (1000 tenants, 10M ord
 
 ---
 
-AWS Activate Credits: Use Case
-
-AWS Activate Founders Credits would accelerate our timeline by covering infrastructure costs during the critical months of customer acquisition and product refinement.
-
-Specific uses:
-
-Month 1-3: Infrastructure Development and Testing
-- SageMaker endpoints for CLIP and XGBoost training
-- OpenSearch Serverless indexing and retrieval optimization
-- Bedrock API calls during product development and testing
-- CloudWatch and X-Ray for observability and debugging
-
-Month 4-6: Pilot Customer Deployment
-- Sustained SageMaker endpoint costs as pilot customers process products
-- Kinesis streaming for high-volume order processing
-- DynamoDB scaling as customer data grows
-- S3 storage and lifecycle management
-
-Month 7-12: Customer Success and Scaling
-- Expansion to multiple customer accounts
-- Model retraining and optimization
-- Enhanced monitoring and reliability improvements
-- Foundation for commercial scaling
-
-Credits would eliminate financial pressure during the critical 12-month period when profitability is not yet achieved but customer trust and product quality are paramount. This allows us to invest in quality over cost-cutting.
-
----
-
 Technical Architecture Summary
 
 BOROBHAI
