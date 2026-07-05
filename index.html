@@ -21,6 +21,31 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
 
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "RoosCloset Labs",
+    "url": "https://www.rooscloset.store",
+    "description": "Applied ML infrastructure company building production AI systems for fashion e-commerce and civic administration.",
+    "founder": {
+      "@type": "Person",
+      "name": "Najmun Nahar Khan",
+      "email": "najmun@rooscloset.store",
+      "telephone": "+8801798344063"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "House #41, Road 3, Sector 3, Uttara",
+      "addressLocality": "Dhaka",
+      "postalCode": "1230",
+      "addressCountry": "BD"
+    },
+    "sameAs": ["https://github.com/najmun-ai"]
+  }
+  </script>
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0R1S9HVL22"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -69,12 +94,19 @@
     .delay-2 { transition-delay: 0.2s; }
     .delay-3 { transition-delay: 0.3s; }
   </style>
+
+  <!-- JS Fallback: Ensures content is visible if JavaScript is disabled or blocked -->
+  <noscript>
+    <style>
+      .reveal { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
 </head>
 
 <body>
 
 <section class="hero" aria-labelledby="hero-heading">
-  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true" role="presentation"></div>
   <div class="container hero-content">
     <div class="hero-eyebrow reveal">Applied ML Infrastructure — Dhaka, Bangladesh</div>
     <h1 id="hero-heading" class="reveal delay-1">
@@ -86,7 +118,7 @@
     </p>
     <div class="hero-cta reveal delay-3">
       <a href="#atlas" class="btn-primary-dark">Explore the Platforms</a>
-      <a href="mailto:najmun@rooscloset.store" class="btn-ghost-dark">Contact Sales →</a>
+      <a href="mailto:najmun@rooscloset.store?subject=Enterprise%20AI%20Inquiry" class="btn-ghost-dark">Contact Sales →</a>
     </div>
     <div class="hero-stats reveal delay-3">
       <div class="stat-item">
@@ -414,7 +446,7 @@
         <div class="contact-grid" role="list">
           <div class="contact-item" role="listitem">
             <div class="contact-item-label">Email</div>
-            <div class="contact-item-val"><a href="mailto:najmun@rooscloset.store">najmun@rooscloset.store</a></div>
+            <div class="contact-item-val"><a href="mailto:najmun@rooscloset.store?subject=Enterprise%20AI%20Inquiry">najmun@rooscloset.store</a></div>
           </div>
           <div class="contact-item" role="listitem">
             <div class="contact-item-label">Phone</div>
@@ -485,20 +517,20 @@
     </div>
     <div class="footer-bottom reveal delay-1" style="padding-bottom: 4rem;">
       <span>&copy; 2026 RoosCloset Labs. All rights reserved.</span>
-      <span>Dhaka, Bangladesh</span>
+      <span>House #41, Road 3, Sector 3, Uttara, Dhaka - 1230, Bangladesh</span>
     </div>
   </div>
 </footer>
 
 <nav class="nav-wrapper" role="navigation" aria-label="Main navigation">
-  <div class="nav-brand">Roos<em>Closet</em></div>
+  <div class="nav-brand" aria-label="RoosCloset">Roos<em>Closet</em></div>
   <ul class="nav-links">
     <li><a href="#atlas" class="nav-link">Atlas</a></li>
     <li><a href="#mirror" class="nav-link">Mirror</a></li>
     <li><a href="#borobhai" class="nav-link">BoroBhai</a></li>
     <li><a href="#founder" class="nav-link">Founder</a></li>
   </ul>
-  <a href="mailto:najmun@rooscloset.store" class="nav-contact">Contact</a>
+  <a href="mailto:najmun@rooscloset.store?subject=Enterprise%20AI%20Inquiry" class="nav-contact">Contact</a>
 </nav>
 
 <script src="/main.js"></script>
