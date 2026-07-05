@@ -15,23 +15,30 @@
 @font-face { font-family: "Editorial New"; src: url("/fonts/EditorialNew-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
 
 /* ============================================================
-   2. DESIGN TOKENS
+   2. DESIGN TOKENS (CHARCOAL & CRISP WHITE REDESIGN)
    ============================================================ */
 :root {
-  --navy: #0B1628;
-  --navy-mid: #1C2D45;
-  --parchment: #F2EFE8;
-  --parchment-alt: #FAFAF7;
+  /* Core Monochrome Palette */
+  --navy: #161616; /* Deep Charcoal (Replaces Navy) */
+  --navy-mid: #222222; /* Lighter Charcoal */
+  --parchment: #FFFFFF; /* Crisp White (Replaces Parchment) */
+  --parchment-alt: #F9F9F9; /* Subtle off-white for section contrast */
+  
+  /* Text Colors */
+  --ink: #0A0A0A;
+  --ink-2: #4A4A4A;
+  --ink-muted: #888888;
+  
+  /* Accents */
   --gold: #C9A96E;
   --gold-pale: #F5EDD8;
   --forest: #1A6B4A;
   --forest-mid: #2D8F65;
   --forest-pale: #E8F4F0;
-  --ink: #0B1628;
-  --ink-2: #3D4D5E;
-  --ink-muted: #7A8FA3;
-  --rule: rgba(11,22,40,0.10);
-  --rule-mid: rgba(11,22,40,0.16);
+  
+  /* UI Elements */
+  --rule: rgba(0, 0, 0, 0.08);
+  --rule-mid: rgba(0, 0, 0, 0.15);
   
   --font-sans: "Sweet Sans Pro", -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
   --font-display: "Editorial New", "Playfair Display", serif;
@@ -60,48 +67,61 @@ img { display: block; max-width: 100%; }
 .delay-3 { transition-delay: 0.3s; }
 
 /* ============================================================
-   5. MINIMALIST BLACK ISLAND NAVIGATION (Fixes applied)
+   5. PINTEREST-STYLE BLACK ISLAND NAVIGATION
    ============================================================ */
+/* Overriding the inline HTML styles completely */
 body nav.nav-wrapper {
-  /* Restored structural anchors */
   position: fixed !important;
   z-index: 1000 !important;
   display: flex !important;
   align-items: center !important;
+  justify-content: space-between !important;
   
-  /* Layout & Design */
-  gap: 0.5rem !important;
-  background: rgba(11, 22, 40, 0.95) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2) !important;
-  padding: 0.3rem 0.3rem 0.3rem 0.6rem !important;
-  width: max-content !important;
-  max-width: 92vw !important;
+  /* Sizing and Positioning */
+  bottom: 2rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 220px !important; /* Fixed width for breathing room */
+  height: 60px !important;
+  
+  /* Pinterest Solid Black Aesthetic */
+  background: #0A0A0A !important; 
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 100px !important;
+  padding: 0 1.2rem !important;
 }
 
-body .nav-brand {
-  font-size: 0 !important; cursor: pointer; display: flex; align-items: center; justify-content: center;
-  width: 36px; height: 36px; background: transparent !important; padding: 0 !important; margin-right: 0.5rem;
-  transition: transform 0.2s ease; flex-shrink: 0;
+/* Hide the old HTML elements completely */
+body .nav-brand, body .nav-links, body .nav-contact, body .nav-to-top {
+  display: none !important;
 }
-body .nav-brand:hover { transform: scale(1.05); }
-body .nav-brand::before { content: 'RC'; font-size: 1.1rem; font-family: var(--font-sans); font-weight: 500; letter-spacing: 0.05em; color: var(--parchment); }
 
-body .nav-links { border-left: 1px solid rgba(255, 255, 255, 0.15) !important; padding-left: 0.5rem !important; }
-body .nav-link { color: rgba(242, 239, 232, 0.6) !important; font-weight: 400 !important; letter-spacing: 0.08em !important; font-family: var(--font-sans) !important; }
-body .nav-link:hover { background: rgba(255, 255, 255, 0.08) !important; color: var(--parchment) !important; }
-body .nav-contact { background: var(--parchment) !important; color: var(--navy) !important; font-weight: 500 !important; letter-spacing: 0.08em !important; margin-left: 0.25rem !important; font-family: var(--font-sans) !important; }
-body .nav-contact:hover { background: var(--gold) !important; color: var(--navy) !important; }
-
-.nav-to-top {
-  display: flex; align-items: center; justify-content: center; width: 38px; height: 38px;
-  border-radius: 100px; background: rgba(255, 255, 255, 0.08); color: var(--parchment); margin-left: 0.4rem;
-  cursor: pointer; transition: background 0.2s ease, color 0.2s ease; flex-shrink: 0;
+/* New Pinterest Icons Injected via JS */
+.pin-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
 }
-.nav-to-top:hover { background: var(--gold); color: var(--navy); }
-.nav-to-top svg { width: 18px; height: 18px; fill: none; }
+.pin-nav-btn:hover { background: rgba(255, 255, 255, 0.15); color: var(--gold); }
+.pin-nav-btn svg { width: 22px; height: 22px; stroke: currentColor; fill: none; }
+
+.pin-nav-center {
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.pin-nav-center:hover { color: var(--gold); transform: scale(1.05); }
 
 /* ============================================================
    6. GLOBAL LAYOUT & TYPOGRAPHY
@@ -180,7 +200,7 @@ h2 em { font-style: italic; color: var(--forest); }
 .mirror-metric .metric-item { border-color: rgba(26, 107, 74, 0.15); }
 .mirror-metric .metric-desc { color: var(--ink-2); }
 .mirror-pipeline { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; margin-top: 3rem; background: var(--rule); }
-.mirror-stage { padding: 2.5rem 2rem; background: var(--parchment-alt); position: relative; }
+.mirror-stage { padding: 2.5rem 2rem; background: var(--parchment); position: relative; }
 .mirror-stage-num { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.12em; color: var(--ink-muted); margin-bottom: 0.8rem; text-transform: uppercase; }
 .mirror-stage-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--navy); margin-bottom: 0.8rem; }
 .mirror-stage-name em { color: var(--forest); font-style: italic; }
@@ -191,15 +211,16 @@ h2 em { font-style: italic; color: var(--forest); }
 .causal-proof-quote { font-family: var(--font-display); font-size: 1.4rem; font-style: italic; color: var(--parchment); line-height: 1.5; max-width: 700px; margin-bottom: 1rem; }
 .causal-proof-sub { font-family: var(--font-mono); font-size: 0.75rem; color: rgba(242, 239, 232, 0.45); letter-spacing: 0.05em; }
 
-.borobhai-section { background: var(--forest); }
+/* Adjusted BoroBhai to fit the Charcoal aesthetic */
+.borobhai-section { background: var(--navy); }
 .borobhai-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
 .borobhai-section h2 { color: var(--parchment); font-size: clamp(2.2rem, 4.5vw, 3.4rem); }
 .borobhai-section h2 em { color: var(--gold-pale); }
 .borobhai-section .lead { color: rgba(242, 239, 232, 0.7); }
 .borobhai-section .eyebrow { color: var(--gold-pale); }
 .borobhai-section .eyebrow::before { background: var(--gold-pale); }
-.borobhai-features { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255, 255, 255, 0.12); margin-top: 2rem; }
-.borobhai-feat { padding: 1.8rem 1.6rem; background: rgba(26, 107, 74, 0.8); }
+.borobhai-features { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255, 255, 255, 0.05); margin-top: 2rem; border: 1px solid rgba(255, 255, 255, 0.05); }
+.borobhai-feat { padding: 1.8rem 1.6rem; background: var(--navy-mid); }
 .borobhai-feat-icon { font-family: var(--font-mono); font-size: 0.65rem; color: var(--gold-pale); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem; opacity: 0.8; }
 .borobhai-feat h4 { font-size: 0.95rem; font-weight: 600; color: var(--parchment); margin-bottom: 0.4rem; }
 .borobhai-feat p { font-size: 0.85rem; color: rgba(242, 239, 232, 0.6); line-height: 1.6; }
@@ -231,13 +252,13 @@ h2 em { font-style: italic; color: var(--forest); }
 .founder-title-line { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; margin-bottom: 2rem; }
 .founder-bio { font-size: 1rem; color: rgba(242, 239, 232, 0.65); line-height: 1.8; margin-bottom: 2.5rem; }
 .founder-track { display: flex; flex-direction: column; gap: 0; }
-.track-item { display: flex; gap: 1.5rem; padding: 1.2rem 0; border-bottom: 1px solid rgba(201, 169, 110, 0.1); align-items: baseline; }
-.track-item:first-child { border-top: 1px solid rgba(201, 169, 110, 0.1); }
+.track-item { display: flex; gap: 1.5rem; padding: 1.2rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); align-items: baseline; }
+.track-item:first-child { border-top: 1px solid rgba(255, 255, 255, 0.05); }
 .track-tag { font-family: var(--font-mono); font-size: 0.62rem; color: var(--gold); opacity: 0.6; min-width: 100px; letter-spacing: 0.05em; text-transform: uppercase; padding-top: 0.1rem; }
 .track-text { font-size: 0.9rem; color: rgba(242, 239, 232, 0.65); line-height: 1.6; }
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(201, 169, 110, 0.1); margin-top: 2.5rem; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255, 255, 255, 0.05); margin-top: 2.5rem; }
 .contact-item { padding: 1.5rem; background: var(--navy-mid); }
-.contact-item-label { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(201, 169, 110, 0.5); margin-bottom: 0.4rem; }
+.contact-item-label { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255, 255, 255, 0.4); margin-bottom: 0.4rem; }
 .contact-item-val { font-size: 0.9rem; color: var(--parchment); font-weight: 500; }
 .contact-item-val a { color: var(--gold); }
 .contact-item-val a:hover { text-decoration: underline; }
@@ -296,17 +317,10 @@ h2 em { font-style: italic; color: var(--forest); }
    ============================================================ */
 @media (max-width: 900px) {
   body nav.nav-wrapper {
-    /* Adjusted bottom threshold to safely clear iOS Safari toolbars */
     bottom: 2rem !important; 
-    width: 90% !important;
-    max-width: none !important;
-    justify-content: space-between !important; 
-    padding: 0.4rem 0.4rem 0.4rem 0.8rem !important; 
-    left: 50% !important; 
-    transform: translateX(-50%) !important; 
+    width: 240px !important;
   }
   
-  body .nav-links { display: none !important; }
   .container { padding: 0 1.5rem; }
   section { padding: 5rem 0; }
   .hero { padding: 10rem 0 6rem; }
