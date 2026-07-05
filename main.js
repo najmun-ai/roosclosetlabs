@@ -2,17 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- 1. SCROLL REVEAL ANIMATIONS ---
   const reveals = document.querySelectorAll('.reveal');
 
+  // Modified specifically to fix iOS Safari footer detection issues
   const observerOptions = {
     root: null,
-    rootMargin: '0px 0px -10% 0px', 
-    threshold: 0.1
+    rootMargin: '0px', 
+    threshold: 0.05 
   };
 
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
-        // Stop observing once revealed so it only animates once
         observer.unobserve(entry.target);
       }
     });
@@ -27,10 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
       
-      // Determine if we are on the homepage
       const isHome = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
 
-      // If it's a cross-page root anchor link (e.g. /#atlas) and we are on a legal subpage, let the browser navigate naturally.
       if (targetId.startsWith('/#')) {
          if (!isHome) return; 
          
@@ -43,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
          return;
       }
 
-      // Handle standard same-page # anchors
       if (targetId === '#') return;
 
       const targetElement = document.querySelector(targetId);
@@ -61,24 +58,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const navWrapper = document.querySelector('.nav-wrapper');
   
   if (navWrapper) {
-    // Make the 'RC' Logo icon act as a back-to-home / scroll-to-top trigger
     const navBrand = navWrapper.querySelector('.nav-brand');
     if (navBrand) {
       navBrand.addEventListener('click', (e) => {
         const isHome = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
         
-        // If already on the homepage, smoothly scroll to top
         if (isHome) {
           e.preventDefault();
           window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
-          // Allow natural navigation back to home root
           window.location.href = '/';
         }
       });
     }
 
-    // Inject the minimalist scroll-to-top arrow button on the right edge of the island
     const toTopBtn = document.createElement('div');
     toTopBtn.className = 'nav-to-top';
     toTopBtn.setAttribute('aria-label', 'Scroll to top');
