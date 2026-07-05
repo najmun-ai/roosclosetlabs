@@ -30,6 +30,45 @@
   </script>
 
   <link rel="stylesheet" href="/style.css">
+
+  <style>
+    .nav-wrapper {
+      top: auto !important;
+      bottom: 2rem !important;
+      left: 50% !important;
+      right: auto !important;
+      transform: translateX(-50%) !important;
+      background: rgba(242, 239, 232, 0.85) !important;
+      backdrop-filter: blur(20px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+      border: 1px solid rgba(11, 22, 40, 0.08) !important;
+      border-radius: 100px !important;
+      padding: 0.4rem 0.6rem !important;
+      box-shadow: 0 20px 40px rgba(11, 22, 40, 0.12), 0 1px 3px rgba(11, 22, 40, 0.05) !important;
+      width: max-content !important;
+    }
+    .nav-brand { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--navy); padding: 0.5rem 1.2rem; flex-shrink: 0; letter-spacing: -0.01em; }
+    .nav-links { border-left: 1px solid var(--rule); padding-left: 0.5rem; margin: 0; }
+    .nav-link { border-radius: 100px; padding: 0.6rem 1rem; transition: background 0.2s ease, color 0.2s ease; }
+    .nav-link:hover { background: rgba(11, 22, 40, 0.05); color: var(--navy); }
+    .nav-contact { background: var(--navy); color: var(--parchment); border-radius: 100px; margin-left: 0.5rem; border: none !important; }
+    .nav-contact:hover { transform: scale(1.03); background: var(--gold); color: var(--navy); }
+    
+    @media (max-width: 900px) {
+      .nav-wrapper { width: 90% !important; justify-content: space-between !important; padding: 0.4rem 0.4rem 0.4rem 1rem !important; }
+    }
+
+    /* Scroll Reveal Classes */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+  </style>
 </head>
 
 <body>
@@ -47,7 +86,7 @@
     </p>
     <div class="hero-cta reveal delay-3">
       <a href="#atlas" class="btn-primary-dark">Explore the Platforms</a>
-      <a href="https://github.com/najmun-ai" target="_blank" rel="noopener noreferrer" class="btn-ghost-dark">GitHub →</a>
+      <a href="mailto:najmun@rooscloset.store" class="btn-ghost-dark">Contact Sales →</a>
     </div>
     <div class="hero-stats reveal delay-3">
       <div class="stat-item">
@@ -261,10 +300,6 @@
             <div class="stat-num">12+</div>
             <div class="stat-label">Official forms generated</div>
           </div>
-          <div class="borobhai-stat">
-            <div class="stat-num">$22</div>
-            <div class="stat-label">Monthly infrastructure cost</div>
-          </div>
         </div>
       </div>
       <div class="reveal delay-1">
@@ -301,7 +336,7 @@
   </div>
 </section>
 
-<section class="infra-section" aria-labelledby="infra-heading">
+<section class="infra-section" id="architecture" aria-labelledby="infra-heading">
   <div class="container">
     <div class="eyebrow reveal">Infrastructure</div>
     <h2 id="infra-heading" class="reveal delay-1">Engineered for the <em>enterprise</em> reality.</h2>
@@ -358,24 +393,6 @@
         <p style="font-size:1.05rem; color:var(--ink-2); line-height:1.82; margin-bottom:2.5rem;">
           Multi-tenant isolation isn't a convention; it is cryptographically enforced. We utilize tenant-prefixed S3 paths, partition-keyed DynamoDB architectures, per-tenant OpenSearch indices, and Cognito with custom identity claims to ensure absolute data sovereignty for every client.
         </p>
-        <div class="cost-table">
-          <div class="cost-row">
-            <span class="cost-label">RoosCloset — current monthly (MVP)</span>
-            <span class="cost-val">$35–50</span>
-          </div>
-          <div class="cost-row">
-            <span class="cost-label">BoroBhai — current monthly</span>
-            <span class="cost-val">$22</span>
-          </div>
-          <div class="cost-row">
-            <span class="cost-label">RoosCloset at scale (10M orders/mo)</span>
-            <span class="cost-val projected">$1,500–2,500</span>
-          </div>
-          <div class="cost-row">
-            <span class="cost-label">Infrastructure as Code</span>
-            <span class="cost-val">AWS CDK (TypeScript)</span>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -441,108 +458,34 @@
   </div>
 </section>
 
-<section class="repo-section" id="repos" aria-labelledby="repos-heading">
+<footer class="footer">
   <div class="container">
-    <div class="eyebrow reveal">Technical Transparency</div>
-    <h2 id="repos-heading" class="reveal delay-1">Institutional code.<br><em>Open</em> for audit.</h2>
-    <p class="lead reveal delay-2">
-      Enterprise procurement requires absolute technical trust. We build in the open. Our core infrastructure, Lambda handlers, and multi-tenant CDK deployment patterns are thoroughly documented and available for immediate technical review.
-    </p>
-    <div class="repo-grid reveal delay-3" role="list">
-      <div class="repo-card" role="listitem">
-        <div class="repo-card-product">Retail Intelligence</div>
-        <h3>RoosCloset</h3>
-        <p>ATLAS + MIRROR. Five-stage Step Functions pipeline, Kinesis streaming, DoWhy causal graph, OpenSearch vector indexing. Full multi-tenant CDK infra.</p>
-        <a href="https://github.com/najmun-ai/rooscloset-retail-intelligence" target="_blank" rel="noopener noreferrer" class="btn-outline" style="align-self: flex-start; padding: 0.5rem 1rem; font-size: 0.75rem;">View Repository</a>
+    <div class="footer-grid reveal">
+      <div>
+        <a href="/" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--parchment);">Roos<em style="color: var(--gold); font-style: italic;">Closet</em> Labs</a>
+        <p style="color: rgba(242, 239, 232, 0.65); font-size: 0.9rem; margin-top: 1.2rem; max-width: 300px; line-height: 1.7;">Applied AI infrastructure and machine learning orchestration built natively for the AWS Cloud.</p>
       </div>
-      <div class="repo-card" role="listitem">
-        <div class="repo-card-product">Civic Technology</div>
-        <h3>BoroBhai</h3>
-        <p>Next.js 14 frontend, Lambda orchestrator with Bedrock Claude 3.5 Sonnet, Amazon Titan Embeddings, Groq Whisper voice input, S3 document generation.</p>
-        <a href="https://github.com/najmun-ai/Bangla-AI" target="_blank" rel="noopener noreferrer" class="btn-outline" style="align-self: flex-start; padding: 0.5rem 1rem; font-size: 0.75rem;">View Repository</a>
-      </div>
-      <div class="repo-card" role="listitem">
-        <div class="repo-card-product">Company Profile</div>
-        <h3>RoosCloset Labs</h3>
-        <p>Strategic documentation, complete AWS architecture reference, business model documentation, and deployment planning guides.</p>
-        <a href="https://github.com/najmun-ai" target="_blank" rel="noopener noreferrer" class="btn-outline" style="align-self: flex-start; padding: 0.5rem 1rem; font-size: 0.75rem;">GitHub Org</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="roadmap-section" aria-labelledby="roadmap-heading">
-  <div class="container">
-    <div class="eyebrow reveal">Strategic Roadmap</div>
-    <h2 id="roadmap-heading" class="reveal delay-1">The trajectory to<br><em>market capture</em>.</h2>
-    <div class="roadmap-grid reveal delay-2" role="list">
-      
-      <div class="roadmap-phase phase-current" role="listitem">
-        <div class="phase-marker">Current · Phase 1</div>
-        <div class="phase-title">Infrastructure Readiness</div>
-        <ul class="phase-items">
-          <li>Core platforms production-deployed</li>
-          <li>Serverless architecture validated</li>
-          <li>Data privacy baselines met</li>
-          <li>Open for enterprise pilots</li>
+      <div>
+        <h4 class="footer-heading">Solutions</h4>
+        <ul class="footer-links">
+          <li><a href="#atlas">ATLAS Catalog AI</a></li>
+          <li><a href="#mirror">MIRROR Causal AI</a></li>
+          <li><a href="#borobhai">BoroBhai Civic Tech</a></li>
+          <li><a href="#architecture">AWS Architecture</a></li>
         </ul>
       </div>
-      
-      <div class="roadmap-phase" role="listitem">
-        <div class="phase-marker">Phase 2</div>
-        <div class="phase-title">Commercial Integration</div>
-        <ul class="phase-items">
-          <li>Onboard inaugural retail partners</li>
-          <li>Initiate municipal integrations</li>
-          <li>Validate sub-150ms latency</li>
-          <li>Establish baseline intervention ROI</li>
-        </ul>
-      </div>
-      
-      <div class="roadmap-phase" role="listitem">
-        <div class="phase-marker">Phase 3</div>
-        <div class="phase-title">Ecosystem Scale</div>
-        <ul class="phase-items">
-          <li>Expand to mid-market accounts</li>
-          <li>Release fully managed API gateways</li>
-          <li>Automate continuous retraining</li>
-          <li>Expand document capabilities</li>
-        </ul>
-      </div>
-      
-      <div class="roadmap-phase" role="listitem">
-        <div class="phase-marker">Phase 4</div>
-        <div class="phase-title">Market Expansion</div>
-        <ul class="phase-items">
-          <li>Process 1M+ catalog queries/mo</li>
-          <li>Deploy cross-border causal mapping</li>
-          <li>Scale operational engineering team</li>
-          <li>Institutional-grade partnerships</li>
+      <div>
+        <h4 class="footer-heading">Legal & Compliance</h4>
+        <ul class="footer-links">
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms-of-service.html">Terms of Service</a></li>
+          <li><a href="/cookie-policy.html">Cookie Policy</a></li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-logo">Roos<em>Closet</em> Labs</div>
-      <div class="footer-links">
-        <a href="https://github.com/najmun-ai/Bangla-AI" target="_blank" rel="noopener noreferrer" class="footer-link">BoroBhai</a>
-        <a href="https://github.com/najmun-ai/rooscloset-retail-intelligence" target="_blank" rel="noopener noreferrer" class="footer-link">RoosCloset</a>
-        <a href="https://github.com/najmun-ai" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
-      </div>
-    </div>
-    <div class="footer-legal">
-      <p>AWS, Amazon Web Services, and all AWS product names are trademarks of Amazon.com, Inc. or its affiliates. RoosCloset Labs is an independent company and is not endorsed by, affiliated with, or sponsored by Amazon Web Services, Inc.</p>
-      <p style="margin-top:0.8rem;">RoosCloset Labs is registered in Dhaka, Bangladesh. Built on AWS-native infrastructure. <br>&copy; 2026 RoosCloset Labs. All rights reserved.</p>
-      
-      <div style="margin-top: 1.5rem; display: flex; gap: 1.5rem;">
-          <a href="/privacy-policy.html" style="color: rgba(242,239,232,0.4); text-decoration: underline;">Privacy Policy</a>
-          <a href="/terms-of-service.html" style="color: rgba(242,239,232,0.4); text-decoration: underline;">Terms of Service</a>
-          <a href="/cookie-policy.html" style="color: rgba(242,239,232,0.4); text-decoration: underline;">Cookie Policy</a>
-      </div>
+    <div class="footer-bottom reveal delay-1" style="padding-bottom: 4rem;">
+      <span>&copy; 2026 RoosCloset Labs. All rights reserved.</span>
+      <span>Dhaka, Bangladesh</span>
     </div>
   </div>
 </footer>
