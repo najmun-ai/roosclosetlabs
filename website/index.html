@@ -3,212 +3,134 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RoosCloset Labs | AI Infrastructure</title>
+  <meta name="description" content="Applied machine learning studio. Building production-grade, multi-tenant AI infrastructure for global fashion e-commerce and civic administration.">
   
-  <!-- SEO & Meta Tags -->
-  <title>RoosCloset Labs | AI Infrastructure for Impact</title>
-  <meta name="description" content="Applied machine learning and cognitive orchestration studio. Building production-grade, multi-tenant AI infrastructure for global fashion e-commerce and civic administration.">
-  <meta name="keywords" content="AWS, Machine Learning, Serverless, AI Infrastructure, RoosCloset, BoroBhai, Retail Intelligence">
-  <meta name="author" content="Najmun Nahar Khan">
-  <meta name="theme-color" content="#065F46">
-
-  <!-- Google tag (gtag.js) - Placeholder -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-
-  <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
   
-  <!-- Stylesheets -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <nav id="main-nav" class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">Roos<span>Closet</span> Labs</div>
-      
-      <!-- Hamburger Menu for Mobile -->
-      <button class="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
 
-      <ul id="nav-links" class="nav-links">
-        <li><a href="#vision" class="nav-item">The Vision</a></li>
-        <li><a href="#products" class="nav-item">Products</a></li>
-        <li><a href="#infrastructure" class="nav-item">Infrastructure</a></li>
-        <li><a href="#founder" class="nav-item">Leadership</a></li>
-        <li><a href="#github" class="btn btn-nav">GitHub</a></li>
-      </ul>
+  <nav id="main-nav" class="navbar">
+    <div class="nav-brand">Roos<span>Closet</span> Labs</div>
+    <div class="nav-links">
+      <a href="#vision" class="hover-target">Vision</a>
+      <a href="#products" class="hover-target">Silos</a>
+      <a href="#infrastructure" class="hover-target">Architecture</a>
+      <a href="https://github.com/najmun-ai" target="_blank" class="hover-target">GitHub</a>
     </div>
   </nav>
 
-  <header class="hero" id="hero">
-    <div class="hero-bg-accent"></div>
-    <div class="container hero-container">
-      <div class="hero-badge">2 Production Products • 22 AWS Services • 100% CDK</div>
-      <h1 class="display-title">
-        AI Infrastructure<br>
-        for <em>Impact</em>
-      </h1>
-      <p class="hero-lead">
-        Building production-ready, multi-tenant intelligence layers. We solve high-friction operational failures in global fashion e-commerce and local civic administration.
-      </p>
-      <div class="cta-group">
-        <a href="#products" class="btn btn-primary">Explore Products</a>
-        <a href="#infrastructure" class="btn btn-ghost">View Architecture</a>
+  <header class="hero section-padding">
+    <div class="grid-12">
+      <div class="col-span-10 col-start-2">
+        <p class="meta-label reveal-up">Dhaka, Bangladesh — Established 2026</p>
+        <h1 class="display-huge reveal-up delay-1">
+          Cognitive<br>
+          <span class="indent italic-brand">Infrastructure.</span>
+        </h1>
+      </div>
+      <div class="col-span-4 col-start-8 hero-text-block reveal-up delay-2">
+        <p class="text-lead">Building production-ready, multi-tenant intelligence layers for global e-commerce and civic administration.</p>
+        <div class="stats-row mt-3">
+          <div><span class="stat-number">2</span><br><span class="stat-label">Products</span></div>
+          <div><span class="stat-number">22</span><br><span class="stat-label">AWS Services</span></div>
+          <div><span class="stat-number">100%</span><br><span class="stat-label">CDK Defined</span></div>
+        </div>
       </div>
     </div>
   </header>
 
-  <section id="vision" class="section-padding section-border-top">
-    <div class="container relative">
-      <div class="section-number" aria-hidden="true">01</div>
-      <div class="section-label">The Vision</div>
-      <h2 class="section-title">From generic tools to<br><em>fundamental</em> solutions.</h2>
-      <div class="text-block">
-        <p class="text-large">
-          The opportunity in enterprise AI is not in API wrappers or generic toolkits. It lies in addressing foundational operational failures that have gone unsolved for decades.
+  <section id="vision" class="section-padding bg-dark">
+    <div class="grid-12">
+      <div class="col-span-5 col-start-2 reveal-up">
+        <h2 class="display-large text-light">From generic tools to <em class="italic-brand">fundamental</em> solutions.</h2>
+      </div>
+      <div class="col-span-4 col-start-8 reveal-up delay-1">
+        <p class="text-body text-light-muted">
+          The opportunity in enterprise AI is not in API wrappers. It lies in addressing foundational operational failures that have gone unsolved for decades.
         </p>
-        <p class="text-standard mt-2">
-          Through deep research and production deployment, RoosCloset Labs identified two critical, high-impact problems: the $100B annual loss in e-commerce due to poor catalog attribution, and the fragmentation of civic administration for underserved populations. Rather than building ten mediocre prototypes, we engineered two highly focused, AWS-native platforms to solve them.
+        <p class="text-body text-light-muted mt-2">
+          Through rigorous research and production deployment, we identified the $100B annual loss in e-commerce and the fragmentation of civic administration. We engineered two highly focused, AWS-native platforms to solve them.
         </p>
       </div>
     </div>
   </section>
 
-  <section id="products" class="section-padding section-border-top bg-alt">
-    <div class="container relative">
-      <div class="section-number" aria-hidden="true">02</div>
-      <div class="section-label">The Product Silos</div>
-      <h2 class="section-title">Two focused platforms.<br>One <em>engineering</em> standard.</h2>
-
-      <div class="grid-layout-asymmetric mt-4">
-        <!-- Silo 1: RoosCloset -->
-        <article class="product-card card-featured">
-          <div class="card-header">
-            <span class="badge badge-emerald">Global E-Commerce</span>
-            <h3 class="card-title">RoosCloset Retail Intelligence</h3>
-            <p class="card-subtitle">B2B Semantic Catalog & Causal Returns</p>
-          </div>
-          <div class="card-body">
-            <p>A closed-loop ML platform solving the e-commerce return hemorrhage.</p>
-            <ul class="feature-list mt-2">
-              <li><strong>ATLAS:</strong> A 5-stage Step Functions pipeline extracting 180+ attributes & 512-dim style embeddings in &lt;60s per SKU.</li>
-              <li><strong>MIRROR:</strong> Checkout-integrated intelligence. Scores return probability via XGBoost on Kinesis streams in &lt;150ms P99, identifying true causal roots.</li>
-            </ul>
-          </div>
-          <div class="card-footer">
-            <span class="tech-stack-text">Powered by: SageMaker, Step Functions, OpenSearch, Kinesis</span>
-          </div>
-        </article>
-
-        <!-- Silo 2: BoroBhai -->
-        <article class="product-card">
-          <div class="card-header">
-            <span class="badge badge-emerald">Civic Administration</span>
-            <h3 class="card-title">BoroBhai</h3>
-            <p class="card-subtitle">Serverless Bengali Civic Agent</p>
-          </div>
-          <div class="card-body">
-            <p>An AI-powered civic assistant helping citizens navigate government bureaucracy through conversational AI and agentic workflows.</p>
-            <ul class="feature-list mt-2">
-              <li><strong>Generation:</strong> Dynamically creates CVs, letters, and trade licenses.</li>
-              <li><strong>Efficiency:</strong> Conditional schema injection reduces LLM token consumption by 80%.</li>
-              <li><strong>RAG:</strong> Hybrid search across a 179-chunk civic procedure knowledge base.</li>
-            </ul>
-          </div>
-          <div class="card-footer">
-            <span class="tech-stack-text">Powered by: Bedrock Claude 3.5, API Gateway, Lambda, S3</span>
-          </div>
-        </article>
+  <section id="products" class="section-padding relative">
+    <div class="grid-12">
+      <div class="col-span-12 center-text mb-4 reveal-up">
+        <p class="meta-label">The Product Silos</p>
+        <h2 class="display-large">Two focused platforms.<br>One engineering standard.</h2>
       </div>
-    </div>
-  </section>
 
-  <section id="infrastructure" class="section-padding section-border-top">
-    <div class="container relative">
-      <div class="section-number" aria-hidden="true">03</div>
-      <div class="section-label">AWS Architecture</div>
-      <h2 class="section-title">22 Managed Services.<br><em>Genuine</em> depth.</h2>
-      <p class="text-large">
-        Not wrappers. Not prompts. 100% Infrastructure as Code (CDK) featuring multi-tenant isolation, event-driven Kinesis streams, and full observability.
-      </p>
-      
-      <!-- CSS Grid replacing the inline patched tags -->
-      <div class="tech-grid mt-4">
-        <div class="tech-item">Step Functions</div>
-        <div class="tech-item">Kinesis</div>
-        <div class="tech-item">SageMaker</div>
-        <div class="tech-item">Bedrock</div>
-        <div class="tech-item">OpenSearch</div>
-        <div class="tech-item">DynamoDB</div>
-        <div class="tech-item">Lambda</div>
-        <div class="tech-item">API Gateway</div>
-        <div class="tech-item">Rekognition</div>
-        <div class="tech-item">EventBridge</div>
-        <div class="tech-item">Cognito</div>
-        <div class="tech-item">SQS</div>
-        <div class="tech-item">S3</div>
-        <div class="tech-item">CloudWatch</div>
-        <div class="tech-item">X-Ray</div>
-        <div class="tech-item">IAM</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="founder" class="section-padding section-border-top bg-alt">
-    <div class="container relative">
-      <div class="section-number" aria-hidden="true">04</div>
-      <div class="section-label">Leadership</div>
-      <div class="founder-grid">
-        <div class="founder-visual">
-          <div class="founder-avatar">NK</div>
+      <div class="col-span-7 col-start-2 silo-block reveal-up">
+        <div class="silo-number">01</div>
+        <div class="silo-content">
+          <p class="meta-label">Global E-Commerce</p>
+          <h3 class="display-medium">Retail Intelligence</h3>
+          <p class="text-lead mt-2">A closed-loop ML platform solving the e-commerce return hemorrhage.</p>
+          <ul class="clean-list mt-3">
+            <li><strong>ATLAS:</strong> A 5-stage Step Functions pipeline extracting 180+ attributes & 512-dim embeddings in &lt;60s.</li>
+            <li><strong>MIRROR:</strong> Checkout-integrated intelligence scoring return probability via XGBoost on Kinesis streams in &lt;150ms P99.</li>
+          </ul>
         </div>
-        <div class="founder-content">
-          <h2 class="founder-name">Najmun Nahar Khan</h2>
-          <p class="founder-role">Applied ML Systems Architect & Founder</p>
-          <p class="text-standard mt-2 mb-3">
-            With 6 production AI systems shipped—spanning flood detection, disease forecasting, and industrial quality control—Najmun specializes in translating complex, multi-modal data into highly optimized, enterprise-ready cloud systems. Based in Dhaka, Bangladesh, she architects cost-optimized AWS infrastructure that solves high-friction operations at scale.
-          </p>
-          <div class="contact-grid">
-            <div class="contact-item">
-              <span class="contact-label">Email</span>
-              <a href="mailto:najmun@rooscloset.store" class="contact-value">najmun@rooscloset.store</a>
-            </div>
-            <div class="contact-item">
-              <span class="contact-label">Location</span>
-              <span class="contact-value">Dhaka, Bangladesh</span>
-            </div>
-          </div>
+      </div>
+
+      <div class="col-span-7 col-start-5 silo-block staggered-silo reveal-up">
+        <div class="silo-number">02</div>
+        <div class="silo-content">
+          <p class="meta-label">Civic Administration</p>
+          <h3 class="display-medium">BoroBhai Agent</h3>
+          <p class="text-lead mt-2">An AI-powered civic assistant helping citizens navigate government bureaucracy.</p>
+          <ul class="clean-list mt-3">
+            <li><strong>Agentic Generation:</strong> Dynamically creates CVs, letters, and trade licenses natively in Bengali.</li>
+            <li><strong>Cost Optimization:</strong> Conditional schema injection reduces LLM token consumption by 80%.</li>
+          </ul>
+          <a href="https://github.com/najmun-ai/Bangla-AI" target="_blank" class="btn hover-target mt-3">View Open Source</a>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-layout">
-        <div class="footer-brand">
-          <div class="nav-logo">Roos<span>Closet</span> Labs</div>
-          <p class="footer-copyright">&copy; 2026 RoosCloset Labs. All rights reserved.</p>
-        </div>
-        <nav class="footer-nav">
-          <a href="https://github.com/najmun-ai" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
-          <a href="mailto:najmun@rooscloset.store">Contact Engineering</a>
-        </nav>
+  <section id="infrastructure" class="section-padding bg-dark">
+    <div class="grid-12">
+      <div class="col-span-4 col-start-2 reveal-up">
+        <h2 class="display-medium text-light">22 Managed Services.<br><em class="italic-brand">Genuine</em> depth.</h2>
+        <p class="text-body text-light-muted mt-2">Not wrappers. Not prompts. 100% Infrastructure as Code featuring multi-tenant isolation and full observability.</p>
       </div>
-      <div class="footer-legal mt-4">
-        <p><strong>Disclaimer:</strong> AWS, Amazon, Amazon Web Services, and related marks are trademarks of Amazon.com, Inc. or its affiliates. This website is not endorsed by or affiliated with Amazon Web Services.</p>
-        <p>RoosCloset Labs is an independent applied machine learning studio developing AI infrastructure solutions. All products are built utilizing AWS managed services and open-source frameworks.</p>
+      <div class="col-span-6 col-start-7 reveal-up delay-1">
+        <div class="organic-tag-cloud">
+          <span>Step Functions</span><span>Kinesis</span><span>SageMaker</span>
+          <span>Bedrock</span><span>OpenSearch</span><span>DynamoDB</span>
+          <span>Lambda</span><span>API Gateway</span><span>Rekognition</span>
+          <span>EventBridge</span><span>Cognito</span><span>SQS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="section-padding pb-2">
+    <div class="grid-12 border-bottom pb-4 mb-2">
+      <div class="col-span-5 col-start-2 reveal-up">
+        <p class="meta-label">Leadership</p>
+        <h2 class="display-medium">Najmun Nahar Khan</h2>
+        <p class="text-body mt-2">Applied ML Systems Architect specializing in highly optimized, enterprise-ready cloud architectures.</p>
+        <a href="mailto:najmun@rooscloset.store" class="text-link hover-target mt-3">najmun@rooscloset.store</a>
+      </div>
+    </div>
+    <div class="grid-12 footer-legal">
+      <div class="col-span-5 col-start-2">
+        <p>&copy; 2026 RoosCloset Labs. All rights reserved.</p>
+      </div>
+      <div class="col-span-5 col-start-7">
+        <p>AWS and related marks are trademarks of Amazon.com, Inc. Not affiliated with AWS.</p>
       </div>
     </div>
   </footer>
