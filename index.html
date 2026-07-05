@@ -34,107 +34,10 @@
       gtag('config', 'G-0R1S9HVL22');
     </script>
 
-    <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
 
-    <style>
-        /* === DESIGN SYSTEM TOKENS === */
-        :root {
-            --bg-base: #F8F9FA;
-            --bg-alt: #FFFFFF;
-            --ink-main: #0B1120;
-            --ink-muted: #4B5563;
-            --accent-primary: #2563EB;
-            --accent-dark: #1E40AF;
-            --accent-aws: #FF9900;
-            --border-color: #E5E7EB;
-            --font-sans: 'Inter', system-ui, sans-serif;
-            --font-mono: 'Space Mono', monospace;
-            --radius-md: 6px;
-            --radius-lg: 12px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* === RESET & BASE === */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; font-size: 16px; }
-        body { font-family: var(--font-sans); color: var(--ink-main); background: var(--bg-base); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-        img { max-width: 100%; display: block; }
-        a { text-decoration: none; color: inherit; transition: var(--transition); }
-
-        /* === TYPOGRAPHY === */
-        h1, h2, h3, h4 { font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; }
-        h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem; }
-        h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
-        h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
-        p { margin-bottom: 1rem; color: var(--ink-muted); font-size: 1.05rem; }
-        .eyebrow { font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-primary); margin-bottom: 1rem; display: block; font-weight: 700; }
-
-        /* === LAYOUT === */
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-        section { padding: 6rem 0; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-
-        /* === BUTTONS === */
-        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; font-weight: 500; border-radius: var(--radius-md); cursor: pointer; transition: var(--transition); border: 1px solid transparent; font-size: 0.95rem; }
-        .btn-primary { background: var(--accent-primary); color: #fff; }
-        .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2); }
-        .btn-outline { border-color: var(--border-color); background: var(--bg-alt); color: var(--ink-main); }
-        .btn-outline:hover { border-color: var(--ink-main); }
-
-        /* === NAVIGATION === */
-        .nav-wrapper { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); z-index: 1000; }
-        .nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
-        .nav-brand { font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; }
-        .nav-links { display: flex; gap: 2rem; align-items: center; }
-        .nav-link { font-size: 0.9rem; font-weight: 500; color: var(--ink-muted); }
-        .nav-link:hover { color: var(--ink-main); }
-
-        /* === HERO SECTION === */
-        .hero { padding: 12rem 0 8rem; background: var(--bg-alt); border-bottom: 1px solid var(--border-color); }
-        .hero-content { max-width: 800px; }
-        .hero p { font-size: 1.25rem; margin-bottom: 2.5rem; }
-        .aws-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255, 153, 0, 0.1); color: #CC7A00; padding: 0.5rem 1rem; border-radius: 100px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; margin-bottom: 2rem; }
-
-        /* === CARDS === */
-        .card { background: var(--bg-alt); padding: 2.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-lg); transition: var(--transition); height: 100%; display: flex; flex-direction: column; }
-        .card:hover { box-shadow: 0 12px 24px rgba(0,0,0,0.04); border-color: #D1D5DB; }
-        .card-tag { display: inline-block; padding: 0.25rem 0.75rem; background: var(--bg-base); border: 1px solid var(--border-color); border-radius: 100px; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; margin-bottom: 1.5rem; }
-
-        /* === TECH TAGS === */
-        .tech-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
-        .tech-tag { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-primary); background: rgba(37, 99, 235, 0.05); padding: 0.25rem 0.75rem; border-radius: 4px; border: 1px solid rgba(37, 99, 235, 0.1); }
-
-        /* === AWS INFRASTRUCTURE SECTION === */
-        .aws-section { background: var(--ink-main); color: #fff; }
-        .aws-section h2 { color: #fff; }
-        .aws-section p { color: #9CA3AF; }
-        .aws-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-        .aws-item { border-left: 2px solid var(--accent-aws); padding-left: 1rem; }
-        .aws-item-title { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-aws); margin-bottom: 0.25rem; font-weight: 700; }
-        .aws-item-desc { font-size: 0.85rem; color: #9CA3AF; margin: 0; }
-
-        /* === FOOTER === */
-        .footer { background: var(--bg-alt); padding: 4rem 0 2rem; border-top: 1px solid var(--border-color); }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
-        .footer-heading { font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.5rem; color: var(--ink-main); }
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 0.75rem; }
-        .footer-links a { color: var(--ink-muted); font-size: 0.9rem; }
-        .footer-links a:hover { color: var(--accent-primary); }
-        .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--ink-muted); }
-
-        /* === RESPONSIVE === */
-        @media (max-width: 900px) {
-            .grid-2, .grid-3, .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-            .nav-links { display: none; }
-            section { padding: 4rem 0; }
-            .hero { padding: 8rem 0 4rem; }
-        }
-    </style>
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
@@ -287,7 +190,7 @@
                         <h3 style="margin-bottom: 0.25rem;">Najmun Nahar Khan</h3>
                         <p style="color: var(--ink-main); font-weight: 500; font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 1rem;">Founder & CEO</p>
                         <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">Proven track record directing and deploying 6 production machine learning systems across industrial QC vision, physics-informed SegFormer flood detection, and retail intelligence. Specializing in dismantling monolithic codebases and reconstructing them into scalable AWS infrastructure.</p>
-                        <a href="https://github.com/najmun-ai" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.5rem 1rem;">Verify Technical Profile (GitHub) ↗</a>
+                        <a href="https://github.com/najmun-ai" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.5rem 1rem;">Technical Profile (GitHub) ↗</a>
                     </div>
                 </div>
                 <div style="background: var(--bg-base); padding: 3rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
