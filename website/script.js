@@ -1,68 +1,81 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Navigation Scroll Effect
-  const navbar = document.getElementById('main-nav');
   
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  };
+  // 1. Custom Magnetic/Expanding Cursor
+  const cursorDot = document.querySelector('.cursor-dot');
+  const cursorOutline = document.querySelector('.cursor-outline');
+  const hoverTargets = document.querySelectorAll('.hover-target, a');
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll(); // Initialize on load
+  // Check if device supports hover (ignores mobile/touch devices)
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-  // 2. Mobile Menu Toggle Logic
-  const mobileToggle = document.querySelector('.mobile-menu-toggle');
-  const navLinks = document.getElementById('nav-links');
-  const navItems = document.querySelectorAll('.nav-item');
+  if (!isTouchDevice && cursorDot && cursorOutline) {
+    window.addEventListener('mousemove', (e) => {
+      const posX = e.clientX;
+      const posY = e.clientY;
 
-  const toggleMenu = () => {
-    const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
-    
-    // Toggle state
-    mobileToggle.setAttribute('aria-expanded', !isExpanded);
-    mobileToggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
-    
-    // Prevent body scroll when menu is open
-    document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
-  };
+      // Dot follows exactly
+      cursorDot.style.left = `${posX}px`;
+      cursorDot.style.top = `${posY}px`;
 
-  if (mobileToggle) {
-    mobileToggle.addEventListener('click', toggleMenu);
+      // Outline follows with slight delay using animate API for smoothness
+      cursorOutline.animate({
+        left: `${posX}px`,
+        top: `${posY}px`
+      }, { duration: 500, fill: "forwards" });
+    });
+
+    // Expand cursor over interactive elements
+    hoverTargets.forEach(target => {
+      target.addEventListener('mouseenter', () => {
+        cursorOutline.classList.add('hover');
+        cursorDot.style.backgroundColor = 'transparent';
+      });
+      target.addEventListener('mouseleave', () => {
+        cursorOutline.classList.remove('hover');
+        cursorDot.style.backgroundColor = 'var(--brand-emerald)';
+      });
+    });
   }
 
-  // Close mobile menu when clicking a link
-  navItems.forEach(item => {
-    item.addEventListener('click', () => {
-      if (navLinks.classList.contains('active')) {
-        toggleMenu();
+  // 2. Intersection Observer for Scroll Reveals
+  const revealElements = document.querySelectorAll('.reveal-up');
+
+  const revealOptions = {
+    root: null,
+    rootMargin: '0px 0px -10% 0px', // Triggers slightly before coming into view
+    threshold: 0.1
+  };
+
+  const revealCallback = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target); // Only animate once
       }
     });
+  };
+
+  const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+
+  revealElements.forEach(el => {
+    revealObserver.observe(el);
   });
 
-  // 3. Smooth Scrolling for Anchor Links
+  // 3. Smooth Anchor Scrolling
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
+    anchor.addEventListener('click', function(e) {
       const targetId = this.getAttribute('href');
-      
-      if (targetId === '#') return;
+      if(targetId === '#') return;
       
       const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        // Account for fixed header height
-        const headerOffset = 80;
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
+      if(targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
         });
       }
     });
   });
+
 });
