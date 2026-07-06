@@ -15,34 +15,42 @@
 @font-face { font-family: "Editorial New"; src: url("/fonts/EditorialNew-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
 
 /* ============================================================
-   2. DESIGN TOKENS (PURE BLACK & CRISP WHITE REDESIGN)
+   /* ============================================================
+   2. DESIGN TOKENS (STRICT 4-COLOR PALETTE)
    ============================================================ */
 :root {
-  /* Core Monochrome Palette */
-  --navy: #000000; /* Pure Black */
-  --navy-mid: #0A0A0A; /* Obsidian */
-  --parchment: #FFFFFF; /* Crisp White */
-  --parchment-alt: #F9F9F9; /* Subtle off-white for section contrast */
+  /* The Mural Palette */
+  --pure-white: #FFFFFF;
+  --warm-off-white: #E8E4E0;
+  --light-mushroom: #CDC4BB;
+  --pure-black: #000000;
+
+  /* Foundation & Legacy Mapping */
+  --parchment: var(--pure-white); 
+  --parchment-alt: var(--warm-off-white); 
   
-  /* Text Colors */
-  --ink: #000000;
-  --ink-2: #333333;
-  --ink-muted: #888888;
+  --navy: var(--pure-black); 
+  --navy-mid: var(--pure-black); 
+  --ink: var(--pure-black);
+  --ink-2: var(--pure-black);
+  --ink-muted: var(--light-mushroom);
   
-  /* Accents */
-  --gold: #C9A96E;
-  --gold-pale: #F5EDD8;
-  --forest: #1A6B4A;
-  --forest-mid: #2D8F65;
-  --forest-pale: #E8F4F0;
+  /* Neutralized Accents */
+  --gold: var(--light-mushroom);
+  --gold-pale: var(--warm-off-white);
+  --forest: var(--pure-black);
+  --forest-mid: var(--pure-black);
+  --forest-pale: var(--warm-off-white);
   
   /* UI Elements */
-  --rule: rgba(0, 0, 0, 0.08);
-  --rule-mid: rgba(0, 0, 0, 0.15);
+  --rule: var(--light-mushroom);
+  --rule-mid: var(--light-mushroom);
   
+  /* Typography */
   --font-sans: "Sweet Sans Pro", -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
   --font-display: "Editorial New", "Playfair Display", serif;
   --font-mono: "IBM Plex Mono", "Space Mono", monospace;
+  --font-logo: "Bytesized", sans-serif;
 }
 
 /* ============================================================
@@ -322,6 +330,55 @@ h2 em { font-style: italic; color: var(--forest); }
 .legal-content li { margin-bottom: 0.5rem; }
 .legal-content a { color: var(--forest); text-decoration: underline; }
 .legal-content a:hover { color: var(--gold); }
+
+/* ============================================================
+   X. STRICT ALTERNATING CONTRAST BLOCKS 
+   ============================================================ */
+
+/* 1. DARK BLOCKS: Hero, Atlas, BoroBhai, Founder, Footer */
+.hero, .atlas-section, .borobhai-section, .founder-section, .footer {
+  background: var(--pure-black) !important;
+  color: var(--pure-white) !important;
+}
+
+/* Force text inversion on dark blocks */
+.hero h1, .hero-sub, .atlas-section h2, .atlas-section .lead, .borobhai-section h2, .borobhai-section .lead, .founder-section h2, .founder-name-display, .founder-bio, .track-text, .footer-logo, .footer-link {
+  color: var(--pure-white) !important;
+}
+
+/* 2. LIGHT BLOCKS: Problem, Mirror, Infra */
+.problem, .infra-section {
+  background: var(--warm-off-white) !important;
+  color: var(--pure-black) !important;
+}
+.mirror-section {
+  background: var(--pure-white) !important; /* Alternating the light shade */
+  color: var(--pure-black) !important;
+}
+
+/* Force text inversion on light blocks */
+.problem h2, .problem .lead, .problem-item h3, .problem-item p, .mirror-section h2, .mirror-section .lead, .mirror-stage-name, .mirror-stage p, .infra-section h2, .infra-section .lead, .service-cat-name {
+  color: var(--pure-black) !important;
+}
+
+/* 3. TYPOGRAPHIC ACCENTS & BORDERS (Light Mushroom) */
+.eyebrow, .stat-num, .problem-pct span, .metric-val, .p-stage-num, .borobhai-feat-icon, .founder-title-line, .track-tag {
+  color: var(--light-mushroom) !important;
+}
+.eyebrow::before {
+  background: var(--light-mushroom) !important;
+}
+
+/* 4. FLATTEN CARDS & GRIDS */
+.problem-grid, .problem-item, .metric-item, .service-category, .track-item, .footer-inner {
+  border-color: var(--light-mushroom) !important;
+}
+.p-stage-inner, .mirror-stage, .borobhai-feat, .contact-item {
+  background: transparent !important;
+  border: 1px solid var(--light-mushroom) !important;
+}
+
+
 
 /* ============================================================
    9. RESPONSIVE (MOBILE)
